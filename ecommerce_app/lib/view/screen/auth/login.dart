@@ -33,14 +33,36 @@ class Login extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 50),
             TextFormField(
               decoration: const InputDecoration(
                 floatingLabelBehavior: FloatingLabelBehavior.always,
-                contentPadding: EdgeInsets.symmetric(vertical: 5 , horizontal: 20),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 20,
+                ),
                 label: Text("Email"),
                 hintText: "Enter your email",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
                 suffixIcon: Icon(Icons.email_outlined),
+
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextFormField(
+              decoration: const InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 20,
+                ),
+                label: Text("Password"),
+                hintText: "Enter your password",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                suffixIcon: Icon(Icons.lock_outlined),
 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
