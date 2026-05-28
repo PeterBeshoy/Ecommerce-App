@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -16,7 +18,7 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         child: ListView(
           children: [
-            const SizedBox(height: 20),
+            Image.asset(ImageAsset.Logo, height: 150),
             Text(
               "Welcome Back!",
               style: Theme.of(
@@ -69,6 +71,44 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Forget Password?",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+            ),
+            MaterialButton(
+             shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
+              onPressed: () {},
+              color: AppColor.primaryColor,
+              child: const Text(
+                "Sign In",
+                style: TextStyle(color: Colors.white, fontSize: 18, ),
+              ),
+            ),
+            const SizedBox(height: 20),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Don't have an account?"),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(color: AppColor.primaryColor),
+                  ),
+                ),
+              ],
+             )
           ],
         ),
       ),
