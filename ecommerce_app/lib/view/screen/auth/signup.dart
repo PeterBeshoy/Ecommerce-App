@@ -8,7 +8,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller =Get.put(SignUpControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -112,21 +112,10 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ),
-            
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Forget Password?",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                ],
-              ),
-            ),
+            const SizedBox(height: 50),
+
             MaterialButton(
-             shape: RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
@@ -134,11 +123,11 @@ class SignUp extends StatelessWidget {
               color: AppColor.primaryColor,
               child: const Text(
                 "Sign Up",
-                style: TextStyle(color: Colors.white, fontSize: 18, ),
+                style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
             const SizedBox(height: 20),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Already have an account?"),
@@ -152,7 +141,7 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ],
-             )
+            ),
           ],
         ),
       ),

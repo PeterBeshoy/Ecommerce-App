@@ -81,9 +81,14 @@ class Login extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Forget Password?",
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  InkWell(
+                    onTap: () {
+                      controller.goToForgetPassword();
+                    },
+                    child: Text(
+                      "Forget Password?",
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ),
                 ],
               ),
