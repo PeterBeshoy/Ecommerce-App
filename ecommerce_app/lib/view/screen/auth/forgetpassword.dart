@@ -72,7 +72,9 @@ class ForgetPassword extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
-              onPressed: () {},
+              onPressed: () {
+                controller.goToVerifyCode();
+              },
               color: AppColor.primaryColor,
               child: const Text(
                 "Send Code",

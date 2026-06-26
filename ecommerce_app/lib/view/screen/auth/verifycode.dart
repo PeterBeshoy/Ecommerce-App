@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/controller/auth/forgetpassword_controller.dart';
-import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/controller/auth/verifycode_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 class VerifyCode extends StatelessWidget {
@@ -8,18 +8,15 @@ class VerifyCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller = Get.put(
-      ForgetPasswordControllerImp(),
+   VerifyCodeControllerImp controller = Get.put(
+      VerifyCodeControllerImp(),
     );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text(
-          "Verify Code",
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const Text("Verify Code", style: TextStyle(color: Colors.black)),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -44,41 +41,33 @@ class VerifyCode extends StatelessWidget {
             ),
             const SizedBox(height: 50),
 
-            
-
             const SizedBox(height: 20),
-            TextFormField(
-              controller: controller.email,
-              decoration: const InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 20,
-                ),
-                label: Text("Email"),
-                hintText: "Enter your email",
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                suffixIcon: Icon(Icons.email_outlined),
-
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-              ),
+            OtpTextField(
+              fieldWidth: 50,
+              borderRadius: BorderRadius.circular(20),
+              numberOfFields: 5,
+              borderColor: Color(0xFF512DA8),
+              //set to true to show as box or false to show as dash
+              showFieldAsBox: true,
+              //runs when a code is typed in
+              onCodeChanged: (String code) {
+                //handle validation or checks here
+              },
+              //runs when every textfield is filled
+              onSubmit: (String verificationCode) {
+                controller.goToResetPassword();
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Verification Code"),
+                      content: Text('Code entered is $verificationCode'),
+                    );
+                  },
+                );
+              }, // end onSubmit
             ),
             const SizedBox(height: 20),
-
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
-              onPressed: () {},
-              color: AppColor.primaryColor,
-              child: const Text(
-                "Send Code",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-            ),
           ],
         ),
       ),

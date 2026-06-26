@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/controller/auth/forgetpassword_controller.dart';
+import 'package:ecommerce_app/controller/auth/resetpassword_controller.dart';
 import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +8,8 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller = Get.put(
-      ForgetPasswordControllerImp(),
+      ResetPasswordControllerImp controller = Get.put(
+      ResetPasswordControllerImp(),
     );
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +17,7 @@ class ResetPassword extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "Forget Password",
+          "Reset Password",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -26,7 +26,7 @@ class ResetPassword extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              "Forget Password",
+              "Reset Password",
               style: Theme.of(
                 context,
               ).textTheme.headlineLarge?.copyWith(fontSize: 35),
@@ -36,7 +36,7 @@ class ResetPassword extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "Enter your email to reset your password",
+                "Enter your new password to reset your password",
 
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
@@ -55,10 +55,29 @@ class ResetPassword extends StatelessWidget {
                   vertical: 5,
                   horizontal: 20,
                 ),
-                label: Text("Email"),
-                hintText: "Enter your email",
+                label: Text("New Password"),
+                hintText: "Enter your new password",
                 hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                suffixIcon: Icon(Icons.email_outlined),
+                suffixIcon: Icon(Icons.lock_outlined),
+
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextFormField(
+              controller: controller.email,
+              decoration: const InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 20,
+                ),
+                label: Text("Confirm New Password"),
+                hintText: "Confirm your new password",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                suffixIcon: Icon(Icons.lock_outlined),
 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -75,7 +94,7 @@ class ResetPassword extends StatelessWidget {
               onPressed: () {},
               color: AppColor.primaryColor,
               child: const Text(
-                "Send Code",
+                "Reset Password",
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
