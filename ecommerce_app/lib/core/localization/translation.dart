@@ -14,6 +14,10 @@ class MyTranslation extends Translations {
           "choose_your_language": "اختر لغتك",
           "arabic": "العربية",
           "english": "الإنجليزية",
+          "success_reset_password": "نجاح إعادة تعيين كلمة المرور",
+          "success_signup": "نجاح التسجيل",
+          
+          
         },
       };
 }

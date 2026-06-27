@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/controller/auth/signupcontroller.dart';
+import 'package:ecommerce_app/controller/auth/signup_controller.dart';
 import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -119,7 +119,9 @@ class SignUp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
-              onPressed: () {},
+              onPressed: () { 
+                controller.signUp();
+              },
               color: AppColor.primaryColor,
               child: const Text(
                 "Sign Up",

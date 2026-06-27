@@ -1,15 +1,15 @@
-import 'package:ecommerce_app/controller/auth/resetpassword_controller.dart';
+import 'package:ecommerce_app/controller/auth/checkemail_controller.dart';
 import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class CheckEmail extends StatelessWidget {
+  const CheckEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
-      ResetPasswordControllerImp controller = Get.put(
-      ResetPasswordControllerImp(),
+    CheckEmailControllerImp controller = Get.put(
+      CheckEmailControllerImp(),
     );
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +17,7 @@ class ResetPassword extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "Reset Password",
+          "Check Email",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -26,7 +26,7 @@ class ResetPassword extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              "Reset Password",
+              "Check Email",
               style: Theme.of(
                 context,
               ).textTheme.headlineLarge?.copyWith(fontSize: 35),
@@ -36,7 +36,7 @@ class ResetPassword extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "Enter your new password to reset your password",
+                "We have sent a password recover instructions to your email.",
 
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
@@ -48,36 +48,17 @@ class ResetPassword extends StatelessWidget {
 
             const SizedBox(height: 20),
             TextFormField(
-              controller: controller.password,
+              controller: controller.email,
               decoration: const InputDecoration(
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 5,
                   horizontal: 20,
                 ),
-                label: Text("New Password"),
-                hintText: "Enter your new password",
+                label: Text("Email"),
+                hintText: "Enter your email",
                 hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                suffixIcon: Icon(Icons.lock_outlined),
-
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              controller: controller.repassword,
-              decoration: const InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 20,
-                ),
-                label: Text("Confirm New Password"),
-                hintText: "Confirm your new password",
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                suffixIcon: Icon(Icons.lock_outlined),
+                suffixIcon: Icon(Icons.email_outlined),
 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -92,11 +73,11 @@ class ResetPassword extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
               onPressed: () {
-                controller.goToSuccsessResetPassword();
+                controller.goToSuccessSignup();
               },
               color: AppColor.primaryColor,
               child: const Text(
-                "Reset Password",
+                "Continue",
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
