@@ -73,7 +73,7 @@ class CheckEmail extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 13),
               onPressed: () {
-                controller.goToSuccessSignup();
+                controller.goToVerifyCodeSignUp();
               },
               color: AppColor.primaryColor,
               child: const Text(
